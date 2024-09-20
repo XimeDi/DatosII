@@ -1,0 +1,39 @@
+
+
+// Crea y activa un entorno virtual:
+py -m venv venv   //una vez
+
+venv\Scripts\activate
+
+// Instala las dependencias:
+pip install -r requirements.txt
+
+// Configura la Base de Datos:
+# flask db init       # Solo si es la primera vez
+# pip install Flask Flask-Migrate
+
+
+# set FLASK APP=backend/app.py
+# flask --app migrate -m "Initial migration"
+# flask --app upgradecd
+
+flask --app backend/app.py run
+
+
+// Ejecuta el Servidor Flask:
+flask run
+
+
+servidor: http://127.0.0.1:5000
+
+
+// Frontend
+cd frontend
+
+// Instala las dependencias:
+npm install
+
+//Ejecuta la Aplicación React:
+npm start
+
+servidor: http://localhost:3000

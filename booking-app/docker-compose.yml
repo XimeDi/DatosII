@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    image: python:3.9
+    container_name: backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+    command: >
+      bash -c "pip install -r requirements.txt &&
+               flask db init || echo 'Migrations already initialized' &&
+               flask db migrate &&
+               flask db upgrade &&
+               flask run --host=0.0.0.0"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+
+  frontend:
+    image: node:18
+    container_name: frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    command: >
+      bash -c "npm install &&
+               npm start"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

@@ -1,0 +1,26 @@
+# Construir la imagen del backend (si no está construida)
+docker-compose build backend
+
+# Ejecutar el script de carga de datos
+docker-compose run backend python load_data.py
+
+
+# Crear el entorno virtual y activar
+py -m venv venv // solo primera vez
+venv/Scripts/activate
+
+# Instalar los requisitos
+pip install -r backend/requirements.txt
+
+# Ejecutar el script
+py backend/load_data.py
+
+
+docker-compose up
+docker-compose down //eliminar contenedor
+docker-compose up --build //levantar contenedores nuevamente
+
+
+docker-compose exec backend flask db init
+docker-compose exec backend flask db migrate -m "Initial migration"
+docker-compose exec backend flask db upgrade
