@@ -1,0 +1,23 @@
+/* Header.css */
+
+nav {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  nav a:hover {
+    color: #ffcc00; /* Cambia el color al pasar el mouse */
+    transition: color 0.3s ease;
+  }
+  
